@@ -1,6 +1,5 @@
-#include "header.h"
+#include "way_home.h"
 
-void mx_printerr(const char *s)
-{
+void mx_printerr(const char *s) {
     write(2, s, mx_strlen(s));
 }

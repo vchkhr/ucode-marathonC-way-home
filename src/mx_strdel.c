@@ -1,9 +1,7 @@
-#include "header.h"
+#include "way_home.h"
 
-void mx_strdel(char **str)
-{
-    if (*str)
-    {
+void mx_strdel(char **str) {
+    if (*str) {
         free(*str);
         *str = NULL;
     }

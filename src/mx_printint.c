@@ -1,42 +1,34 @@
-#include "header.h"
+#include "way_home.h"
 
-void mx_printint(int n)
-{
+void mx_printint(int n) {
     int count = 0;
-    int num = n;
+    int number = n;
     int degree = 1;
 
-    if (n < 0)
-    {
+    if (n < 0) {
         mx_printchar('-');
         n = n * (-1);
-        num = n;
+        number = n;
+    }
+    if (n == 0) {
+        mx_printchar('0');
     }
 
-    if (n == 0)
-        mx_printchar('0');
-
-    while (n != 0)
-    {
+    for (; n != 0; count++) {
         n /= 10;
-        count++;
+    }
+    for (int i = 1; i < count; i++) {
+        degree *= 10;
     }
 
-    for (int i = 1; i < count; i++)
-        degree = degree * 10;
-
-    while (num > 0)
-    {
-        int dig = num / degree + 48;
-        mx_printchar(dig);
-        count--;
-        num %= degree;
-        degree = degree / 10;
+    for (; number > 0; count--) {
+        int digit = number / degree + 48;
+        mx_printchar(digit);
+        
+        number %= degree;
+        degree /= 10;
     }
-
-    while (count)
-    {
+    for (; count; count--) {
         mx_printchar('0');
-        count--;
     }
 }

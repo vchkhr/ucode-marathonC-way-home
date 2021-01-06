@@ -1,19 +1,17 @@
-#include "header.h"
+#include "way_home.h"
 
-char *mx_strnew(const int size)
-{
+char *mx_strnew(const int size) {
+    if (size < 0) {
+        return NULL;
+    }
+
     char *memory = NULL;
     int i = 0;
 
-    if (size < 0)
-        return NULL;
-
     memory = (char *)malloc(size + 1);
 
-    while (i < size)
-    {
+    for (; i < size; i++) {
         memory[i] = '\0';
-        i++;
     }
 
     memory[i] = '\0';

@@ -1,14 +1,15 @@
-#include "header.h"
+#include "way_home.h"
 
-int mx_strlen(const char *s)
-{
+int mx_strlen(const char *s) {
+    if (!s) {
+        return 0;
+    }
+
     int i = 0;
 
-    if (!s)
-        return 0;
-
-    while (s[i])
+    for (; s[i];) {
         i++;
+    }
 
     return i;
 }

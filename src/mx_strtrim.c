@@ -1,22 +1,24 @@
-#include "header.h"
+#include "way_home.h"
 
-char *mx_strtrim(const char *str)
-{
-    int len = mx_strlen(str);
+char *mx_strtrim(const char *str) {
+    if (!str) {
+        return NULL;
+    }
+
+    int length = mx_strlen(str);
     int start = 0;
     int last = 0;
     char *result;
 
-    if (!str)
-        return NULL;
-
-    for (int i = 0; mx_isspace(str[i]); i++)
+    for (int i = 0; mx_isspace(str[i]); i++) {
         start++;
-    for (int j = len - 1; mx_isspace(str[j]); j--)
+    }
+    for (int j = length - 1; mx_isspace(str[j]); j--) {
         last++;
+    }
 
-    result = mx_strnew(len - start - last);
-    mx_strncpy(result, str + start, len - start - last);
+    result = mx_strnew(length - start - last);
+    mx_strncpy(result, str + start, length - start - last);
 
     return result;
 }
